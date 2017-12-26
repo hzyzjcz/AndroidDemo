@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent1);
                 break;
             case R.id.btn_broadcast:  //广播
+                Intent intent2 = new Intent(this,BroadcastActivity.class);
+                startActivity(intent2);
                 break;
         }
     }
