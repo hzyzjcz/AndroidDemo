@@ -16,6 +16,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ServiceActivity"></activity>
+
         <service android:name=".TestService"></service>
 
 
