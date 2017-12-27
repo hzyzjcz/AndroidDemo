@@ -9,9 +9,9 @@ import android.widget.Toast;
  * Created by xiaof on 2017/12/26.
  */
 
-public class TestBroadcastReceiver extends BroadcastReceiver{
+public class TestBroadcastReceiver1 extends BroadcastReceiver{
     @Override
     public void onReceive(Context context, Intent intent) {
-        Toast.makeText(context, "接收到了广播", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "接收到了广播1", Toast.LENGTH_SHORT).show();
     }
 }
