@@ -10,6 +10,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button serviceBtn;
     private Button broadcastBtn;
+    private Button frontServiceBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -17,8 +18,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         serviceBtn = (Button) findViewById(R.id.btn_service);
         broadcastBtn = (Button) findViewById(R.id.btn_broadcast);
+        frontServiceBtn = (Button) findViewById(R.id.btn_front_service);
         serviceBtn.setOnClickListener(this);
         broadcastBtn.setOnClickListener(this);
+        frontServiceBtn.setOnClickListener(this);
     }
 
     @Override
@@ -31,6 +34,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_broadcast:  //广播
                 Intent intent2 = new Intent(this,BroadcastActivity.class);
                 startActivity(intent2);
+                break;
+            case R.id.btn_front_service:  //前台服务
+                Intent intent3 = new Intent(this,FrontActivity.class);
+                startActivity(intent3);
                 break;
         }
     }
