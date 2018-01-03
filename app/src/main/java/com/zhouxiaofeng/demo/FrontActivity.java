@@ -89,6 +89,7 @@ public class FrontActivity extends AppCompatActivity implements View.OnClickList
                     Toast.makeText(this, "请先绑定服务", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                binder.customFront();
                 break;
             case R.id.btn_stop_front:  //结束前台服务
                 if (null == bindBtn){

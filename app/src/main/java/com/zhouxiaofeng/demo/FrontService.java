@@ -9,6 +9,7 @@ import android.os.Binder;
 import android.os.Build;
 import android.os.IBinder;
 import android.support.annotation.RequiresApi;
+import android.widget.RemoteViews;
 import android.widget.Toast;
 
 /**
@@ -53,21 +54,30 @@ public class FrontService extends Service{
     class MyBinder extends Binder {
         private Notification notification;
         @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+        // 默认通知栏样式的前台服务
         public void defaultFront(){
             Notification.Builder builder = new Notification.Builder(FrontService.this.getApplicationContext()); //获取一个Notification构造器
             Intent nfIntent = new Intent(FrontService.this, MainActivity.class);
             builder.setContentIntent(PendingIntent.getActivity(FrontService.this, 0, nfIntent, 0))  //设置PendingIntent
                     .setLargeIcon(BitmapFactory.decodeResource(FrontService.this.getResources(), R.mipmap.block))
                     .setContentTitle("下拉列表中的Title")
-                    .setSmallIcon(R.mipmap.time)
+                    .setSmallIcon(R.mipmap.ic_launcher)
                     .setContentText("要显示的内容")
                     .setWhen(System.currentTimeMillis());
             notification = builder.build(); // 获取构建好的Notification
             notification.defaults = Notification.DEFAULT_SOUND; //设置为默认的声音
             startForeground(10,notification);
         }
+        // 自定义通知栏的前台服务
         public void customFront(){
-
+            RemoteViews remoteViews = new RemoteViews(FrontService.this.getPackageName(), R.layout.layout_music_controller);// 获取remoteViews（参数一：包名；参数二：布局资源）
+            Notification.Builder builder = new Notification.Builder(FrontService.this.getApplicationContext())
+                    .setContent(remoteViews);
+            builder.setWhen(System.currentTimeMillis()).setSmallIcon(R.mipmap.ic_launcher);
+            notification = builder.getNotification();// 获取构建好的通知--.build()最低要求在
+            // API16及以上版本上使用，低版本上可以使用.getNotification()。
+            notification.defaults = Notification.DEFAULT_SOUND;//设置为默认的声音
+            startForeground(10, notification);// 开始前台服务
         }
 
         public void stopFront(){
