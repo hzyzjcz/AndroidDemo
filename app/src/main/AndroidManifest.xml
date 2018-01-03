@@ -18,8 +18,11 @@
 
         <activity android:name=".ServiceActivity"></activity>
         <activity android:name=".BroadcastActivity"></activity>
-
+        <activity android:name=".FrontActivity"></activity>
+        <!--普通服务-->
         <service android:name=".TestService"></service>
+        <!--前台服务-->
+        <service android:name=".FrontService"></service>
 
         <!--静态注册广播-->
         <receiver android:name=".TestBroadcastReceiver1">
