@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button serviceBtn;
     private Button broadcastBtn;
     private Button frontServiceBtn;
+    private Button customViewBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -19,9 +20,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         serviceBtn = (Button) findViewById(R.id.btn_service);
         broadcastBtn = (Button) findViewById(R.id.btn_broadcast);
         frontServiceBtn = (Button) findViewById(R.id.btn_front_service);
+        customViewBtn = (Button) findViewById(R.id.btn_custom_view);
         serviceBtn.setOnClickListener(this);
         broadcastBtn.setOnClickListener(this);
         frontServiceBtn.setOnClickListener(this);
+        customViewBtn.setOnClickListener(this);
     }
 
     @Override
@@ -39,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent3 = new Intent(this,FrontActivity.class);
                 startActivity(intent3);
                 break;
+            case R.id.btn_custom_view:  //自定义View
+                Intent intent4 = new Intent(this,CustomViewActivity.class);
+                startActivity(intent4);
         }
     }
 }

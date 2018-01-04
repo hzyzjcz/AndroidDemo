@@ -19,6 +19,7 @@
         <activity android:name=".ServiceActivity"></activity>
         <activity android:name=".BroadcastActivity"></activity>
         <activity android:name=".FrontActivity"></activity>
+        <activity android:name=".CustomViewActivity"></activity>
         <!--普通服务-->
         <service android:name=".TestService"></service>
         <!--前台服务-->
