@@ -12,6 +12,8 @@ import android.widget.Toast;
 public class TestBroadcastReceiver1 extends BroadcastReceiver{
     @Override
     public void onReceive(Context context, Intent intent) {
-        Toast.makeText(context, "接收到了广播1", Toast.LENGTH_SHORT).show();
+        String msg = getResultData();
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+        abortBroadcast();  //禁止向下传递广播
     }
 }

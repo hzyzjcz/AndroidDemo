@@ -13,6 +13,5 @@ public class TestBroadcastReceiver2 extends BroadcastReceiver{
     @Override
     public void onReceive(Context context, Intent intent) {
         Toast.makeText(context, "接收到了广播2", Toast.LENGTH_SHORT).show();
-
     }
 }
