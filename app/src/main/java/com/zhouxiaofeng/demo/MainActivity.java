@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button broadcastBtn;
     private Button frontServiceBtn;
     private Button customViewBtn;
+    private Button largeImageBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -23,10 +24,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         broadcastBtn = (Button) findViewById(R.id.btn_broadcast);
         frontServiceBtn = (Button) findViewById(R.id.btn_front_service);
         customViewBtn = (Button) findViewById(R.id.btn_custom_view);
+        largeImageBtn = (Button) findViewById(R.id.btn_large_image);
         serviceBtn.setOnClickListener(this);
         broadcastBtn.setOnClickListener(this);
         frontServiceBtn.setOnClickListener(this);
         customViewBtn.setOnClickListener(this);
+        largeImageBtn.setOnClickListener(this);
         //注册setOnTouchListener返回ture时，不调用onTouchEvent
         customViewBtn.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -55,6 +58,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_custom_view:  //自定义View
                 Intent intent4 = new Intent(this,CustomViewActivity.class);
                 startActivity(intent4);
+                break;
+            case R.id.btn_large_image:
+                Intent intent5 = new Intent(this,LargeImageViewActivity.class);
+                startActivity(intent5);
+                break;
         }
     }
 }

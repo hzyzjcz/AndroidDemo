@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
+
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -37,5 +38,10 @@ public class CustomViewActivity extends AppCompatActivity{
     
     public void a123(View v){
         Toast.makeText(this, "345", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        return super.dispatchTouchEvent(ev);
     }
 }

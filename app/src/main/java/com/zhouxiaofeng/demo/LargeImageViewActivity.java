@@ -1,8 +1,9 @@
 package com.zhouxiaofeng.demo;
 
-import android.app.job.JobInfo;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapRegionDecoder;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -34,6 +35,10 @@ public class LargeImageViewActivity extends AppCompatActivity{
             int height = options.outHeight;
 
             BitmapRegionDecoder bitmapRegionDecoder = BitmapRegionDecoder.newInstance(inputStream,false);
+            BitmapFactory.Options options1 = new BitmapFactory.Options();
+            options1.inPreferredConfig = Bitmap.Config.RGB_565;
+            Bitmap bitmap = bitmapRegionDecoder.decodeRegion(new Rect(width / 2 - 100, height / 2 - 100, width / 2 + 100, height / 2 + 100), options);
+            imageView.setImageBitmap(bitmap);
         }catch (Exception e){
             e.printStackTrace();
         }
