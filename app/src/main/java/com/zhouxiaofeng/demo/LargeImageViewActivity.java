@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
-import java.io.FileDescriptor;
 import java.io.InputStream;
 
 /**
