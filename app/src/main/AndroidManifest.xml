@@ -34,6 +34,20 @@
         </receiver>
 
 
+        <!--注册android无障碍服务-->
+        <service android:name=".SuperService"
+            android:label="AndroidDemo辅助服务"
+            android:permission = "android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action  android:name = "android.accessibilityservice.AccessibilityService"  />
+            </intent-filter>
+
+            <meta-data
+                android:name = "android.accessibilityservice"
+                android:resource = "@xml/accessibility_service_config"  /> <!--注意此处-->
+        </service>
+
+
 
     </application>
 
