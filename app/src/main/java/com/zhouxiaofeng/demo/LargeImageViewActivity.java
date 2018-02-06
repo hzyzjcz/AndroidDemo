@@ -6,8 +6,9 @@ import android.graphics.BitmapRegionDecoder;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+
+import com.zhouxiaofeng.demo.base.BaseActivity;
 
 import java.io.InputStream;
 
@@ -15,7 +16,7 @@ import java.io.InputStream;
  * Created by Administrator on 2018/1/11.
  */
 
-public class LargeImageViewActivity extends AppCompatActivity{
+public class LargeImageViewActivity extends BaseActivity{
 
     private ImageView imageView;
 

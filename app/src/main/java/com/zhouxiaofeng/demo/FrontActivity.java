@@ -8,16 +8,17 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.zhouxiaofeng.demo.base.BaseActivity;
 
 /**
  * Created by xiaof on 2018/1/3.
  */
 
-public class FrontActivity extends AppCompatActivity implements View.OnClickListener {
+public class FrontActivity extends BaseActivity implements View.OnClickListener {
     private Button startBtn;
     private Button stopBtn;
     private Button bindBtn;

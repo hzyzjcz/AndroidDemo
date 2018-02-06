@@ -4,16 +4,16 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+
+import com.zhouxiaofeng.demo.base.BaseActivity;
 
 /**
  * Created by xiaof on 2017/12/26.
  */
 
-public class BroadcastActivity extends AppCompatActivity implements View.OnClickListener {
+public class BroadcastActivity extends BaseActivity implements View.OnClickListener {
 
     private final String TAG = "com.zhouxiaofeng.demo.broadcastreceiver";
     private TestBroadcastReceiver2 receiver2;

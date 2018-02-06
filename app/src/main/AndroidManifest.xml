@@ -3,6 +3,7 @@
     package="com.zhouxiaofeng.demo">
 
     <application
+        android:name=".base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -19,11 +20,16 @@
         <activity android:name=".ServiceActivity"></activity>
         <activity android:name=".BroadcastActivity"></activity>
         <activity android:name=".FrontActivity"></activity>
+        <!--利用BitmapRegionDecoder 加载大图界面-->
         <activity android:name=".CustomViewActivity"></activity>
+        <!--利用BitmapRegionDecoder 加载大图界面-->
         <activity android:name=".LargeImageViewActivity"></activity>
-        <!--普通服务-->
+
+        <!--照片墙界面-->
+        <activity android:name=".lrucachephotowall.PhotoWallActivity"></activity>
+        <!--启动绑定普通服务-->
         <service android:name=".TestService"></service>
-        <!--前台服务-->
+        <!--启动绑定前台服务-->
         <service android:name=".FrontService"></service>
 
         <!--静态注册广播-->
