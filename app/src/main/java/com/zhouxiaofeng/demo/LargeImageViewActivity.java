@@ -44,4 +44,6 @@ public class LargeImageViewActivity extends BaseActivity{
             e.printStackTrace();
         }
     }
+
+
 }

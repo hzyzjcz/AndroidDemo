@@ -39,7 +39,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         customViewBtn.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Toast.makeText(MainActivity.this, "爱情手枪", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "yesterday once more", Toast.LENGTH_SHORT).show();
                 return false;
             }
         });
@@ -66,14 +66,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 Intent intent4 = new Intent(this,CustomViewActivity.class);
                 startActivity(intent4);
                 break;
-            case R.id.btn_large_image:
+            case R.id.btn_large_image:  //加载大图
                 Intent intent5 = new Intent(this,LargeImageViewActivity.class);
                 startActivity(intent5);
                 break;
-            case R.id.btn_photo_wall:
+            case R.id.btn_photo_wall:  //照片墙（缓存）
                 Intent intent6 = new Intent(this,PhotoWallActivity.class);
                 startActivity(intent6);
                 break;
         }
     }
+
+
 }

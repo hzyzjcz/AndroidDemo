@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.util.Log;
 import android.util.LruCache;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.zhouxiaofeng.demo.R;
 
@@ -148,7 +150,8 @@ public class PhotoWallAdapter extends ArrayAdapter<String> implements AbsListVie
 
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount,
-                         int totalItemCount) {
+        int totalItemCount) {
+
         mFirstVisibleItem = firstVisibleItem;
         mVisibleItemCount = visibleItemCount;
         // 下载的任务应该由onScrollStateChanged里调用，但首次进入程序时onScrollStateChanged并不会调用，
