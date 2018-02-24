@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zhouxiaofeng.demo">
 
+    <!-- 访问网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 在SDCard中创建与删除文件权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 往SDCard写入数据权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".base.BaseApplication"
         android:allowBackup="true"
@@ -9,6 +16,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!--################################activity活动-开始###########################################-->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,21 +33,19 @@
         <activity android:name=".CustomViewActivity"></activity>
         <!--利用BitmapRegionDecoder 加载大图界面-->
         <activity android:name=".LargeImageViewActivity"></activity>
-
         <!--照片墙界面-->
         <activity android:name=".lrucachephotowall.PhotoWallActivity"></activity>
+        <!--webview界面-->
+        <activity android:name=".webview.WebViewActivity"></activity>
+
+        <!--################################activity活动-结束###########################################-->
+
+
+        <!--################################service服务-开始###########################################-->
         <!--启动绑定普通服务-->
         <service android:name=".TestService"></service>
         <!--启动绑定前台服务-->
         <service android:name=".FrontService"></service>
-
-        <!--静态注册广播-->
-        <receiver android:name=".TestBroadcastReceiver1">
-            <intent-filter android:priority="10">
-                <action android:name="com.zhouxiaofeng.demo.broadcastreceiver"></action>
-            </intent-filter>
-        </receiver>
-
 
         <!--注册android无障碍服务-->
         <service android:name=".SuperService"
@@ -52,7 +59,17 @@
                 android:name = "android.accessibilityservice"
                 android:resource = "@xml/accessibility_service_config"  /> <!--注意此处-->
         </service>
+        <!--################################service服务-结束###########################################-->
 
+
+        <!--################################broadcastreceiver广播-开始###########################################-->
+        <!--静态注册广播-->
+        <receiver android:name=".TestBroadcastReceiver1">
+            <intent-filter android:priority="10">
+                <action android:name="com.zhouxiaofeng.demo.broadcastreceiver"></action>
+            </intent-filter>
+        </receiver>
+        <!--################################broadcastreceiver广播-结束###########################################-->
 
 
     </application>

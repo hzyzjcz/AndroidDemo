@@ -1,5 +1,6 @@
 package com.zhouxiaofeng.demo;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 
 import com.zhouxiaofeng.demo.base.BaseActivity;
 import com.zhouxiaofeng.demo.lrucachephotowall.PhotoWallActivity;
+import com.zhouxiaofeng.demo.webview.WebViewActivity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button serviceBtn;
@@ -18,6 +20,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button customViewBtn;
     private Button largeImageBtn;
     private Button photoWallBtn;
+    private Button webViewBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,12 +32,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         customViewBtn = (Button) findViewById(R.id.btn_custom_view);
         largeImageBtn = (Button) findViewById(R.id.btn_large_image);
         photoWallBtn = (Button) findViewById(R.id.btn_photo_wall);
+        webViewBtn = (Button) findViewById(R.id.btn_webview);
         serviceBtn.setOnClickListener(this);
         broadcastBtn.setOnClickListener(this);
         frontServiceBtn.setOnClickListener(this);
         customViewBtn.setOnClickListener(this);
         largeImageBtn.setOnClickListener(this);
         photoWallBtn.setOnClickListener(this);
+        webViewBtn.setOnClickListener(this);
         //注册setOnTouchListener返回ture时，不调用onTouchEvent
         customViewBtn.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -73,6 +78,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.btn_photo_wall:  //照片墙（缓存）
                 Intent intent6 = new Intent(this,PhotoWallActivity.class);
                 startActivity(intent6);
+                break;
+            case R.id.btn_webview:
+                Intent intent7 = new Intent(this, WebViewActivity.class);
+                startActivity(intent7);
                 break;
         }
     }

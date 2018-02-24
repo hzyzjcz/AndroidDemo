@@ -3,6 +3,15 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <Button
         android:id="@+id/btn_service"
         android:text="Service界面"
@@ -38,5 +47,15 @@
         android:text="照片墙界面"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_webview"
+            android:text="本地webview界面"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
