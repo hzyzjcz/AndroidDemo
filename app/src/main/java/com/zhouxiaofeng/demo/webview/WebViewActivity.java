@@ -2,6 +2,7 @@ package com.zhouxiaofeng.demo.webview;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -21,10 +22,14 @@ public class WebViewActivity extends BaseActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview);
         webView = (WebView) findViewById(R.id.webview);
-        webView.loadUrl("file:///android_asset/page.html");
+        WebSettings wSet = webView.getSettings();
+        wSet.setJavaScriptEnabled(true);
+        //加载本地的assets文件夹中的html文件
+        webView.loadUrl("file:///android_asset/index.html");
+
         //webView.loadUrl("https://m.baidu.com/");
 
-        //
+        //不调用本地浏览器 使用该webview
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
