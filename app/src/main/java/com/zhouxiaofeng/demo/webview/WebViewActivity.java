@@ -1,6 +1,8 @@
 package com.zhouxiaofeng.demo.webview;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -16,6 +18,12 @@ import com.zhouxiaofeng.demo.base.BaseActivity;
 public class WebViewActivity extends BaseActivity{
 
     private WebView webView;
+    private Handler handler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(Message msg) {
+            return false;
+        }
+    });
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,5 +45,13 @@ public class WebViewActivity extends BaseActivity{
                 return true;
             }
         });
+
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
+
     }
 }
