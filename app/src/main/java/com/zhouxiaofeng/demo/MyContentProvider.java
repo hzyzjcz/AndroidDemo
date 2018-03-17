@@ -15,6 +15,7 @@ public class MyContentProvider extends ContentProvider{
     @Override
     public boolean onCreate() {
         return false;
+
     }
 
     @Nullable
