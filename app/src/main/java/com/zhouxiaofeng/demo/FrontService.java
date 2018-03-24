@@ -7,8 +7,11 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Binder;
 import android.os.Build;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.NotificationCompat;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
@@ -19,6 +22,8 @@ import android.widget.Toast;
 public class FrontService extends Service{
 
     private MyBinder myBinder = new MyBinder();
+
+
 
     @Override
     public void onCreate() {
@@ -56,16 +61,18 @@ public class FrontService extends Service{
         @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
         // 默认通知栏样式的前台服务
         public void defaultFront(){
-            Notification.Builder builder = new Notification.Builder(FrontService.this.getApplicationContext()); //获取一个Notification构造器
             Intent nfIntent = new Intent(FrontService.this, MainActivity.class);
-            builder.setContentIntent(PendingIntent.getActivity(FrontService.this, 0, nfIntent, 0))  //设置PendingIntent
+            //为了保证兼容新所以使用了NotificationCompat.Builder
+            notification = new NotificationCompat.Builder(FrontService.this.getApplicationContext())
+                    .setContentIntent(PendingIntent.getActivity(FrontService.this, 0, nfIntent, 0))  //设置PendingIntent
                     .setLargeIcon(BitmapFactory.decodeResource(FrontService.this.getResources(), R.mipmap.block))
                     .setContentTitle("下拉列表中的Title")
                     .setSmallIcon(R.mipmap.ic_launcher)
-                    .setContentText("要显示的内容")
-                    .setWhen(System.currentTimeMillis());
-            notification = builder.build(); // 获取构建好的Notification
-            notification.defaults = Notification.DEFAULT_SOUND; //设置为默认的声音
+                    .setContentText("要显示的内容")  //设置通知栏显示的内容
+                    .setWhen(System.currentTimeMillis()) //设置通知栏显示的时间
+                    .setDefaults(NotificationCompat.DEFAULT_ALL)  //设置手机默认的声音配置
+                    .setAutoCancel(true)  //设置点击通知后自动小时小图标
+                    .build();
             startForeground(10,notification);
         }
         // 自定义通知栏的前台服务
